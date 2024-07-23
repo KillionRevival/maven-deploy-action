@@ -1,0 +1,22 @@
+name: "Deploy Maven Package"
+description: "Deploys Maven Package"
+inputs:
+  java-version:
+    default: 17
+    description: "Version of Java to build with"
+  java-distribution:
+    default: "temurin"
+    description: "Distribution of Java to use"
+runs:
+  using: "composite"
+  steps:
+    - name: Set up JDK ${{ inputs.java-version }}
+      uses: actions/setup-java@v4.2.1
+      with:
+        java-version: ${{ inputs.java-version }}
+        distribution: temurin
+        server-username: KillionRevival
+        server-password: ${{ github.TOKEN }}
+    - name: Deploy with Maven
+      run: mvn deploy
+      shell: bash
