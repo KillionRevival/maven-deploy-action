@@ -16,7 +16,7 @@ runs:
         java-version: ${{ inputs.java-version }}
         distribution: temurin
         server-username: ${{ github.actor }}
-        server-password: ${{ github.TOKEN }}
+        server-password: ${{ secrets.GITHUB_TOKEN }}
     - name: Deploy with Maven
       run: mvn deploy
       shell: bash
