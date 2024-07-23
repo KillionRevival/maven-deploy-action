@@ -17,9 +17,9 @@ runs:
         distribution: temurin
 
     - name: Set environment variables
-        run: |
-          echo "STR_USERNAME=${{ github.actor }}" >> $GITHUB_ENV
-          echo "STR_PASSWORD=${{ github.token }}" >> $GITHUB_ENV
+      run: |
+        echo "STR_USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+        echo "STR_PASSWORD=${{ github.token }}" >> $GITHUB_ENV
 
     - name: Configure Maven settings
       run: |
