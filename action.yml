@@ -17,6 +17,11 @@ runs:
         distribution: temurin
         server-username: ${{ github.actor }}
         server-password: ${{ github.token }}
+
+    - name: debug maven settings
+      run: cat /home/runner/.m2/settings.xml
+      shell: bash
+
     - name: Deploy with Maven
       run: mvn deploy
       shell: bash
