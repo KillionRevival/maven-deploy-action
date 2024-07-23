@@ -7,9 +7,6 @@ inputs:
   java-distribution:
     default: "temurin"
     description: "Distribution of Java to use"
-  github-token:
-    required: true
-    description: "The token to use for uploading to Github packages"
 runs:
   using: "composite"
   steps:
@@ -19,7 +16,7 @@ runs:
         java-version: ${{ inputs.java-version }}
         distribution: temurin
         server-username: ${{ github.actor }}
-        server-password: ${{ inputs.github-token }}
+        server-password: ${{ github.token }}
     - name: Deploy with Maven
       run: mvn deploy
       shell: bash
