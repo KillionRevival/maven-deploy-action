@@ -28,10 +28,6 @@ runs:
         echo "<settings xmlns=\"http://maven.apache.org/SETTINGS/1.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd\"><servers><server><id>github</id><username>${STR_USERNAME}</username><password>${STR_PASSWORD}</password></server></servers></settings>" > $HOME/.m2/settings.xml
       shell: bash
 
-    - name: Print settings.xml for debugging
-      run: cat $HOME/.m2/settings.xml
-      shell: bash
-
     - name: Deploy with Maven
       run: mvn deploy
       shell: bash
