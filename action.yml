@@ -15,7 +15,7 @@ runs:
       with:
         java-version: ${{ inputs.java-version }}
         distribution: temurin
-        server-username: KillionRevival
+        server-username: ${{ github.actor }}
         server-password: ${{ github.TOKEN }}
     - name: Deploy with Maven
       run: mvn deploy
